@@ -15,18 +15,19 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 public class ItemAdapter extends ArrayAdapter<Items> {
-    private final Object List;
     List<Items> itemsArrayList;
 
     public ItemAdapter(@NonNull Context context, int resource, @NonNull List<Items> objects) {
         super( context, resource , objects);
-        List = objects;
+        itemsArrayList = objects;
     }
 
+    @NonNull
     @Override
-    public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.itemslist, parent , false);
+
+    View view = LayoutInflater.from(getContext()).inflate(R.layout.items , parent , false);
         Items currentItems = itemsArrayList.get(position);
 
         TextView itemName = view.findViewById(R.id.itemName);
